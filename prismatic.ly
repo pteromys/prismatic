@@ -7,11 +7,18 @@
 SR = { \change Staff = "R" \stemDown }
 SL = { \change Staff = "L" \stemUp }
 
-righthand = \relative c' {
-  \clef G
+PP = \sustainOn
+PX = \sustainOff
+
+globalsig = {
   \key g \major
   \time 6/8
-  \tempo 4.=60
+  \tempo 4.=80
+}
+
+righthand = \relative c' {
+  \clef G
+  \globalsig
 
   \stemUp
   \slurUp
@@ -143,11 +150,9 @@ righthand = \relative c' {
 % Manual beaming modifications are inserted to accommodate dynamics.
 lefthand = \relative c {
   \clef F
-  \key g \major
-  \time 6/8
-  \tempo 4.=60
+  \globalsig
 
-  \stemDown
+  \stemUp
   % Intro
   g16 d' g \SR b d g b g d b \SL g d \bar "|:" |
   g, d' g \SR b d g b g d b \SL g d |
@@ -188,27 +193,19 @@ lefthand = \relative c {
   ais,, cisis' ais' \SR eis' ais dis cisis ais eis \SL ais, eis ais, |
   ais, ais' dis \SR eis ais dis cisis ais eis \SL ais, eis ais, |
   % Intermediate theme
-  <<
-    { dis16 ais' dis \SR fis ais dis fis dis b fis \SL b, fis }
-    \\
-    { r4. b,4. }
-  >> |
-  ais16 fis' cis' \SR dis fis ais cis ais fis dis \SL cis fis, |
+  dis16 ais' dis \SR fis ais dis fis dis b fis \SL b, fis |
+  ais, fis' cis' \SR dis fis ais cis ais fis dis \SL cis fis, |
   cis cis' fis \SR gis b cis fis cis b gis \SL fis cis |
   fis, cis' fis \SR gis ais cis fis cis ais gis \SL fis cis |
-  fis,16 cis' e \SR ais cis e ais e cis ais \SL e cis |
+  fis, cis' e \SR ais cis e ais e cis ais \SL e cis |
   eis, cis' ais' \SR cis eis ais cis ais eis cis \SL eis, cis |
   eis, eis' bis' \SR eis gisis bis eis bis gisis eis \SL bis eis, |
   ais, eis' ais \SR cis eis ais cis ais eis cis \SL ais eis |
-  <<
-    { ais,16 eis' ais \SR cis eis ais cis ais fis cis \SL fis, cis }
-    \\
-    { r4. fis,4. }
-  >> |
-  cis16 cis' eis gis \SR cis eis gis eis cis \SL gis eis cis |
+  ais,16 eis' ais \SR cis eis ais cis ais fis cis \SL fis, cis |
+  cis, cis' eis gis \SR cis eis gis eis cis \SL gis eis cis |
   gis fis' dis' \SR gis bis dis gis dis bis gis \SL dis gis, |
   cis, gis' cis \SR eis gis cis eis cis gis eis \SL cis gis |
-  eis,16 eis' bis' \SR eis gisis bis fis' bis, gisis eis \SL bis eis, |
+  eis, eis' bis' \SR eis gisis bis fis' bis, gisis eis \SL bis eis, |
   ais, eis' ais \SR cis eis ais bis ais eis cis \SL ais eis |
   dis fis ais \SR dis fis ais \SL gis,, gis' cis \SR dis gis bis \SL |
   ais,, eis' ais \SR bis cis eis ais eis cis bis \SL ais eis |
@@ -220,9 +217,9 @@ lefthand = \relative c {
   cis,16 gis' cis \SR eis gis cis eis cis gis eis \SL cis gis |
   cis,16 fisis cis' \SR fisis ais cis dis cis ais fisis \SL cis fisis, |
   bis, gis' dis' \SR gis bis dis gis dis bis gis \SL dis gis, |
-  cis, gis' cis \SR eis gis eis' \SL dis,, dis' fis \SR gis ais cis \SL |
+  cis, gis' cis \SR eis gis eis' \SL dis,, dis' fisis \SR gis ais cis \SL |
   gis, dis' gis \SR ais bis dis gis dis bis ais \SL dis, gis, |
-  fisis ais cis \SR fis ais cis \SL cis,, fisis cis' \SR fis ais cis \SL |
+  fisis ais cis \SR fisis ais cis \SL cis,, fisis cis' \SR fisis ais cis \SL |
   bis,, gis' dis' \SR gis bis dis gis eis bis gis \SL eis bis |
   eis, cis' eis \SR gis cis eis fisis eis cis gis \SL eis cis |
   dis, dis' gis \SR ais dis gis fisis dis ais \SL fisis dis cis |
@@ -253,17 +250,9 @@ lefthand = \relative c {
   f g b \SR d g b d b g d \SL f, g, |
   c, e' d' \SR e g c e c g e \SL c e, |
   d, d' c' \SR fis a d fis d a fis \SL c d, |
-  <<
-    { dis,16 fis' dis' \SR a' b dis g dis b a fis' a, \SL }
-    \\
-    { r4. b,,,8 cis dis }
-  >> |
-  <<
-    { e16 e' b' \SR g' e' g b g e c \SL c, e, }
-    \\
-    { r4. c,4. }
-  >> |
-  d16 d' b' \SR d g b d b g d \SL b d, |
+  dis,16 fis' dis' \SR a' b dis g dis b a fis' a, \SL |
+  e,,16 e' b' \SR g' e' g b g e c \SL c, e, |
+  d,16 d' b' \SR d g b d b g d \SL b d, |
   d, d' c' \SR a' c d g d c a \SL c, d, |
   g, d' g \SR b d g b g d b \SL g d |
   % Coda
@@ -276,49 +265,285 @@ lefthand = \relative c {
   c, e' a \SR c e g \SL d,, d' a' \SR g' a d \SL |
   g,,, d' g \SR b d g b g d b \SL g d |
   g, dis' g \SR b dis g b g dis b \SL g dis |
-  <<
-    { e,16 e' g \SR b fis' g g' d b g \SL b, d, }
-    \\
-    { r4. b,4. }
-  >> |
-  c16 e' c' \SR g' e' c fis e c g \SL c, g |
+  e,16 e' g \SR b fis' g g' d b g \SL b, d, |
+  c,16 e' c' \SR g' e' c fis e c g \SL c, g |
   d, d' a' \SR c d fis a fis d c \SL a d, |
   dis, b' a' \SR b dis fis b fis dis b \SL fis b, |
   e, e' g \SR b fis' g a g e b \SL e, b |
   c, c' e \SR g c e \SL d,, a' d \SR a' g' fis \SL |
   g,, g' a \SR b d g \SL d,, a' d \SR a' d fis \SL |
   g,, g' a \SR b d g \SL d,, a' d \SR a' g' fis \SL |
-  \stemDown
   g,,,16[ g']
-  \stemUp
+  \SR \stemUp
   d'[ g b d]
-  \SR \stemDown
+  \stemDown
   g[ b d g]
   \stemUp
   b[ d] \SL |
-  r2. \bar "|." |
+  s2. \bar "|." |
+}
+
+bass = \relative c {
+  \clef F
+  \globalsig
+  \stemDown
+
+  % Intro
+  g2. |
+  s |
+  % Theme
+  g2. | fis | e | s |
+  c' | d | g, | s |
+  c, | d | e | c |
+  c | a' | d, | d |
+  g |
+  % Bridge
+  g2. |
+  fis | a | aes | aes |
+  es | s | g | gis |
+  cis, | a' | a | e |
+  e | e | ais, | s |
+  % Intermediate theme
+  dis4. b | ais2. | cis | fis |
+  fis2. | eis | eis | ais |
+  ais4. fis | cis2. | gis' | cis |
+  eis,2. | ais | dis4. gis, | ais2. |
+  fis4. fis | eis4. r | fis4. gis, | cis2. |
+  % Transition back to main theme
+  s2. |
+  cis2. | bis | cis4. dis | gis2. |
+  fisis4. cis | bis4. r | eis2. | dis |
+  e2. | e | b | a' |
+  cis, | fis | b | b |
+  c | g | c | g |
+  c | g | a | d, |
+  % Main theme returns
+  g2. | fis | e | s |
+  c' | d | g, | s |
+  c,2. | d | dis4. b8 cis dis | e4. c |
+  d2. | d | g |
+  % Coda
+  g2. |
+  e2. | c4. d | g2. | g |
+  e2. | c4. d | g2. | g |
+  e4. b | c2. | d | dis |
+  e2. | c4. d | g4. d | g d |
+  g,2. ~ | g2. |
+  \bar "|."
 }
 
 dynamics = {
-  % Formatting
   %\override DynamicTextSpanner #'dash-period = #-1.0
-  \crescTextCresc
-  \dimTextDim
-  \dynamicUp
   % Intro
   s2.\p
+  \dynamicUp
   s2.^\markup{2nd time \dynamic{mp}}
   % Theme
   s2.*17
   % Bridge
+  s2.\mp
+  s2.
+  s2.\p
+  \crescHairpin
+  s2.\<
+  s2.
+  \dimHairpin
+  s4.\mf s4.\>
+  \crescTextCresc
+  s2.\mp\<
+  s2.*6
+  s2.\ff
+  s2.
+  \dimHairpin
+  s2.\>
+  s2.
+  % Intermediate theme
+  \crescTextCresc
+  s2.\p\<
+  s2.*5
+  \dimHairpin
+  s2.\mf\>
+  s4. s4.\p
+  \crescHairpin
+  s2.\mp\<
+  s2.\f
+  \dimHairpin
+  s4. s4.\>
+  s2.\p
+  s2.*2
+  \crescHairpin
+  s2.\<
+  \dimHairpin
+  s4.\mp\> s4\p s8\mp
+  s2.*4
+  % Transition back to main theme
+  s2.
   \crescTextCresc
   s2.\<
-  s2.*12
+  s2.*7
+  s2.*4
   s2.\f
   s2.
+  \dimHairpin
+  s2.\>
+  s2.
+  \crescTextCresc
+  s2.\p\<
+  s2.*7
+  % Main theme returns
+  s2.\mf
+  s2.*6
+  \crescTextCresc
+  s2.\<
+  s2.*4
+  s2.\ff
+  s2.
+  \dimHairpin
+  s2.\>
+  % Coda
+  s4. s4.\mf
+  s2.*4
+  s2.*2
+  \crescHairpin
+  s2.\<
+  s2.
+  s2.\f
+  s2.
+  \dimHairpin
+  s2.\>
+  s2.
+  s2.\mp
+  s2.
+  \dimHairpin
   s2.\>
   s2.
   s2.\p
+}
+
+pedals = {
+  \set Staff.pedalSustainStyle = #'mixed
+  % Intro
+  s2.\PP
+  s2.
+  % Theme
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  % Bridge
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.
+  s2.\PX\PP
+  s2.
+  s2.
+  s2.\PX\PP
+  s2.
+  % Intermediate theme
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  % Transition back to main theme
+  s2.
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  % Main theme returns
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  % Coda
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s4.\PX\PP s4.\PX\PP
+  s2.\PX\PP
+  s2.
 }
 
 \book {
@@ -329,12 +554,15 @@ dynamics = {
   }
   \paper {
     print-page-number = ##t
-    %between-system-padding = 1\cm
+    between-system-padding = 1\cm
   }
   \score {
     \new PianoStaff <<
       #(set-accidental-style 'piano)
       \new Staff = "R" <<
+        \mergeDifferentlyDottedOn
+        \mergeDifferentlyHeadedOn
+
         % Add extra space for the cross-staff beams
         \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-5 . 4)
         % Fake centered dynamics
@@ -342,15 +570,19 @@ dynamics = {
         % Keep dynamic marks from colliding with barlines
         \override Staff.DynamicText #'extra-spacing-width = #'(-0.5 . 0.5)
 
-        \righthand %\dynamics
+        \righthand \dynamics
       >>
       \new Staff = "L" <<
-        % Add extra space for the cross-staff beams
-        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-4 . 5)
+        \mergeDifferentlyDottedOn
+        \mergeDifferentlyHeadedOn
 
-        \lefthand
+        % Add extra space for the cross-staff beams
+        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-4 . 6)
+
+        \lefthand \bass \pedals
       >>
     >>
     \layout {}
+    \midi {}
   }
 }
