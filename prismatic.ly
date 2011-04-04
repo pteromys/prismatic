@@ -27,26 +27,28 @@ righthand = \relative c' {
   \slurUp
   \tieUp
   % Intro
-  R2. \bar "|:" |
-  r4. r4 b'8 |
-  % Theme
-  b4. b4 b8 |  % 3
-  b4. ~ b4 a8 |
-  g2. |
-  r4. r4 e'8 |
-  e4. e4 e8 |  % 7
-  fis4. ~ fis4 e8 |
-  d2. |
-  r4. r4 d8 |
-  d4. c4 c8 |  % 11
-  c4. a4 b8 |
-  a4. g4. |
-  e4. ~ e4 g8 |
-  b4. a4 g8 |  % 15
-  a4. ~ a4 g8 |
-  g2. |
-  fis4. ~ fis4 fis8 |
-  g2. \bar ":|" |  % 19
+  R2. |
+  \repeat volta 2 {
+    r4. r4 b'8 |
+    % Theme
+    b4. b4 b8 |  % 3
+    b4. ~ b4 a8 |
+    g2. |
+    r4. r4 e'8 |
+    e4. e4 e8 |  % 7
+    fis4. ~ fis4 e8 |
+    d2. |
+    r4. r4 d8 |
+    d4. c4 c8 |  % 11
+    c4. a4 b8 |
+    a4. g4. |
+    e4. ~ e4 g8 |
+    b4. a4 g8 |  % 15
+    a4. ~ a4 g8 |
+    g2. |
+    fis4. ~ fis4 fis8 |
+    g2. | % 19
+  }
   % Bridge
   r4. b4 cis8 |
   d4. a4. |  % 21
@@ -157,26 +159,28 @@ lefthand = \relative c {
 
   \stemUp
   % Intro
-  g16 d' g \SR b d g b g d b \SL g d \bar "|:" |
-  g, d' g \SR b d g b g d b \SL g d |
-  % Theme
-  g,16 d' g \SR b d g b g d b \SL g d |
-  fis, fis' a \SR b dis fis b fis dis b \SL fis fis, |
-  e g' \SR b e g b e b g e b \SL e, |
-  e, e' \SR b' e g b e b g e \SL b e, |
-  c c' e \SR g c d e d c g \SL e c |
-  d, a' d \SR fis a d fis d a fis \SL a, d, |
-  g, g' b \SR d g b d b g d \SL b g |
-  f g b \SR d g b d b g d \SL f, g, |
-  c, e' g \SR c e g c g e c \SL g e |
-  d, d' fis a \SR d fis a fis d \SL a fis d |
-  e, b' e \SR g b e g e b g \SL e b |
-  c, c' e \SR g c d e d c g \SL e c |
-  c, c' g' \SR c e g a g e c \SL e, c |
-  a e' a \SR c e g a g e c \SL e, a, |
-  d, d' \SR g a c e g e c a g \SL d |
-  d, d' fis \SR a c d fis d c a \SL d, a |
-  g d' g \SR b d g b g d b \SL g d |
+  g16 d' g \SR b d g b g d b \SL g d |
+  \repeat volta 2 {
+    g, d' g \SR b d g b g d b \SL g d |
+    % Theme
+    g,16 d' g \SR b d g b g d b \SL g d |
+    fis, fis' a \SR b dis fis b fis dis b \SL fis fis, |
+    e g' \SR b e g b e b g e b \SL e, |
+    e, e' \SR b' e g b e b g e \SL b e, |
+    c c' e \SR g c d e d c g \SL e c |
+    d, a' d \SR fis a d fis d a fis \SL a, d, |
+    g, g' b \SR d g b d b g d \SL b g |
+    f g b \SR d g b d b g d \SL f, g, |
+    c, e' g \SR c e g c g e c \SL g e |
+    d, d' fis a \SR d fis a fis d \SL a fis d |
+    e, b' e \SR g b e g e b g \SL e b |
+    c, c' e \SR g c d e d c g \SL e c |
+    c, c' g' \SR c e g a g e c \SL e, c |
+    a e' a \SR c e g a g e c \SL e, a, |
+    d, d' \SR g a c e g e c a g \SL d |
+    d, d' fis \SR a c d fis d c a \SL d, a |
+    g d' g \SR b d g b g d b \SL g d |
+  }
   % Bridge
   g,16 cis g' \SR cis e g b g e cis \SL g cis, |
   fis, d' fis \SR a d fis a fis d a \SL fis d |
@@ -293,13 +297,15 @@ bass = \relative c {
 
   % Intro
   g2. |
-  s |
-  % Theme
-  g2. | fis | e | s |
-  c' | d | g, | s |
-  c, | d | e | c |
-  c | a' | d, | d |
-  g |
+  \repeat volta 2 {
+    s |
+    % Theme
+    g2. | fis | e | s |
+    c' | d | g, | s |
+    c, | d | e | c |
+    c | a' | d, | d |
+    g |
+  }
   % Bridge
   g2. |
   fis | a | aes | aes |
@@ -340,9 +346,11 @@ dynamics = {
   \dynamicUp
   % Intro
   s2.\p
-  s2.^\markup{2nd time \dynamic{mp}}
-  % Theme
-  s2.*17
+  \repeat volta 2 {
+    s2.^\markup{2nd time \dynamic{mp}}
+    % Theme
+    s2.*17
+  }
   % Bridge
   s2.\mp
   s2.
@@ -559,6 +567,7 @@ pedals = {
     print-page-number = ##t
     between-system-padding = 1\cm
   }
+  % PDF output
   \score {
     \new PianoStaff <<
       #(set-accidental-style 'piano)
@@ -584,6 +593,39 @@ pedals = {
         % Still more space for cross-staff beams
         \override VerticalAlignment #'padding = #1
       }
+    }
+  }
+  % MIDI output
+  \score {
+    \unfoldRepeats {
+    \new StaffGroup <<
+      \new Staff = "Melody" <<
+        \set Staff.midiInstrument = #"acoustic grand"
+        \set Staff.midiMinimumVolume = #0.5
+        \set Staff.midiMaximumVolume = #1.0
+        \righthand \dynamics \pedals
+      >>
+      \new PianoStaff <<
+        \new Staff = "R" <<
+          \set Staff.midiInstrument = #"acoustic grand"
+          \set Staff.midiMinimumVolume = #0.3
+          \set Staff.midiMaximumVolume = #0.8
+          \dynamics \pedals
+        >>
+        \new Staff = "L" <<
+          \set Staff.midiInstrument = #"acoustic grand"
+          \set Staff.midiMinimumVolume = #0.3
+          \set Staff.midiMaximumVolume = #0.8
+          \lefthand \dynamics \pedals
+        >>
+      >>
+      \new Staff = "Bass" <<
+        \set Staff.midiInstrument = #"acoustic grand"
+        \set Staff.midiMinimumVolume = #0.3
+        \set Staff.midiMaximumVolume = #0.7
+        \bass \dynamics \pedals
+      >>
+    >>
     }
     \midi {}
   }
