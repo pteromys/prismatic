@@ -14,6 +14,9 @@ globalsig = {
   \key g \major
   \time 6/8
   \tempo 4.=80
+
+  \mergeDifferentlyDottedOn
+  \mergeDifferentlyHeadedOn
 }
 
 righthand = \relative c' {
@@ -334,9 +337,9 @@ bass = \relative c {
 
 dynamics = {
   %\override DynamicTextSpanner #'dash-period = #-1.0
+  \dynamicUp
   % Intro
   s2.\p
-  \dynamicUp
   s2.^\markup{2nd time \dynamic{mp}}
   % Theme
   s2.*17
@@ -355,7 +358,7 @@ dynamics = {
   s2.\ff
   s2.
   \dimHairpin
-  s2.\>
+  s8 s4\> s4.
   s2.
   % Intermediate theme
   \crescTextCresc
@@ -560,29 +563,28 @@ pedals = {
     \new PianoStaff <<
       #(set-accidental-style 'piano)
       \new Staff = "R" <<
-        \mergeDifferentlyDottedOn
-        \mergeDifferentlyHeadedOn
-
-        % Add extra space for the cross-staff beams
-        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-5 . 4)
-        % Fake centered dynamics
-        \override Staff.DynamicLineSpanner #'staff-padding = #3
-        % Keep dynamic marks from colliding with barlines
-        \override Staff.DynamicText #'extra-spacing-width = #'(-0.5 . 0.5)
+        % Configure space for the cross-staff beams
+        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-7 . 3)
 
         \righthand \dynamics
       >>
       \new Staff = "L" <<
-        \mergeDifferentlyDottedOn
-        \mergeDifferentlyHeadedOn
-
-        % Add extra space for the cross-staff beams
-        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-4 . 6)
+        % Configure space for the cross-staff beams
+        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+        % Sustain pedal can afford to be a little closer to notes
+        \override Staff.SustainPedalLineSpanner #'padding = #0.8
 
         \lefthand \bass \pedals
       >>
     >>
-    \layout {}
+    \layout {
+      \context { \Score
+        % Put some distance between the metronome mark and the first "p"
+        \override MetronomeMark #'extra-offset = #'(0 . 2)
+        % Still more space for cross-staff beams
+        \override VerticalAlignment #'padding = #1
+      }
+    }
     \midi {}
   }
 }
