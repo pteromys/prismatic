@@ -308,10 +308,13 @@ bass = \relative c {
   }
   % Bridge
   g2. |
-  fis | a | aes | aes |
-  es | s | g | gis |
+  fis | a |
+  aes | aes |
+  es | s | g |
+  gis |
   cis, | a' | a | e |
-  e | e | ais, | s |
+  e | e |
+  ais, | s |
   % Intermediate theme
   dis4. b | ais2. | cis | fis |
   fis2. | eis | eis | ais |
