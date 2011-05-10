@@ -164,20 +164,20 @@ lefthand = \relative c {
     g, d' g \SR b d g b g d b \SL g d |
     % Theme
     g,16 d' g \SR b d g b g d b \SL g d |
-    fis, fis' a \SR b dis fis b fis dis b \SL fis fis, |
-    e g' \SR b e g b e b g e b \SL e, |
+    fis, fis'-1 a \SR b dis fis b fis dis b \SL fis fis,-3 |
+    e g'-1 \SR b e g b e b g e b \SL e, |
     e, e' \SR b' e g b e b g e \SL b e, |
-    c c' e \SR g c d e d c g \SL e c |
-    d, a' d \SR fis a d fis d a fis \SL a, d, |
-    g, g' b \SR d g b d b g d \SL b g |
-    f g b \SR d g b d b g d \SL f, g, |
-    c, e' g \SR c e g c g e c \SL g e |
-    d, d' fis a \SR d fis a fis d \SL a fis d |
+    c c'-1 e \SR g c d e d c g \SL e c |
+    d, a' d \SR fis a d fis d a fis \SL a,-1 d,-2 |
+    g, g'-1 b \SR d g b d b g d \SL b g |
+    f g b \SR d g b d b g d \SL f,-1 g,-2 |
+    c, e'-1 g \SR c e g c g e c \SL g e |
+    d, d'-1 fis-3 a \SR d fis a fis d \SL a fis d |
     e, b' e \SR g b e g e b g \SL e b |
     c, c' e \SR g c d e d c g \SL e c |
     c, c' g' \SR c e g a g e c \SL e, c |
     a e' a \SR c e g a g e c \SL e, a, |
-    d, d' \SR g a c e g e c a g \SL d |
+    d, d' \SR g-2 a-1 c e g e c a g \SL d |
     d, d' fis \SR a c d fis d c a \SL d, a |
     g d' g \SR b d g b g d b \SL g d |
   }
