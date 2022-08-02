@@ -351,7 +351,6 @@ bass = \relative c {
 }
 
 dynamics = {
-  %\override DynamicTextSpanner.style = #'none
   \dynamicUp
   % Intro
   s2.\p
@@ -570,25 +569,26 @@ pedals = {
   \header {
     title = "Prismatic"
     composer = "Andrew Geng"
-    copyright = \markup { \center-column { \line { Copyright © 2011 by Andrew Geng } } }
+    copyright = \markup { \center-column {
+      \line { " " } % space away from bottom system's pedal bracket; we'd use last-bottom-spacing except we want it only to affect the first page
+      \line { Copyright © 2011 by Andrew Geng }
+    } }
   }
   \paper {
     print-page-number = ##t
-    obsolete-between-system-padding = 1\cm  system-system-spacing.padding = #(/ obsolete-between-system-padding staff-space)  score-system-spacing.padding = #(/ obsolete-between-system-padding staff-space)
+    % add a little space between each system's pedal bracket and the next's dynamics
+    system-system-spacing.padding = #4
+    % add a little space before page numbers
+    top-system-spacing.padding = #2
   }
   % PDF output
   \score {
     \new PianoStaff <<
       \accidentalStyle piano
       \new Staff = "R" <<
-        % Configure space for the cross-staff beams
-        \override Staff.VerticalAxisGroup.minimum-Y-extent = #'(-7 . 3)
-
         \righthand \dynamics
       >>
       \new Staff = "L" <<
-        % Configure space for the cross-staff beams
-        \override Staff.VerticalAxisGroup.minimum-Y-extent = #'(-3 . 3)
         % Sustain pedal can afford to be a little closer to notes
         \override Staff.SustainPedalLineSpanner.padding = #0.8
 
@@ -599,8 +599,12 @@ pedals = {
       \context { \Score
         % Put some distance between the metronome mark and the first "p"
         \override MetronomeMark.extra-offset = #'(0 . 2)
-        % Still more space for cross-staff beams
-        \override VerticalAlignment.padding = #1
+      }
+      \context { \PianoStaff
+        % Claim space for the cross-staff beams
+        \override StaffGrouper.staff-staff-spacing.padding = #4
+        \override StaffGrouper.staff-staff-spacing.basic-distance = #10.5
+        \override StaffGrouper.staff-staff-spacing.minimum-distance = #8
       }
     }
   }
