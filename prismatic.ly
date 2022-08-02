@@ -65,6 +65,7 @@ righthand = \relative c' {
   e4. b4 e8 |
   gis4. e4 gis8 |  % 33
   b4. gis4 b8 |
+  \key ais \minor
   ais4. cisis,4 dis8 |
   eis4. cisis,4 cisis8 |
   % Intermediate theme
@@ -98,6 +99,7 @@ righthand = \relative c' {
   dis4. gis4 gis8 |
   gis4. fisis4 gis8 |
   gis4. fisis4 fisis8 |
+  \key g \major
   gis4. gis4 gis8 |  % 66
   gis4. ais4 b8 |
   b4. fis4. |
@@ -197,6 +199,7 @@ lefthand = \relative c {
   e, e' gis b \SR e gis b gis e \SL b gis e |
   e, e' b' \SR gis' b d e d b gis \SL b, e, |
   e, e' d' \SR gis b e gis e b gis \SL d e, |
+  \key ais \minor
   ais,, cisis' ais' \SR eis' ais dis cisis ais eis \SL ais, eis ais, |
   ais, ais' dis \SR eis ais dis cisis ais eis \SL ais, eis ais, |
   % Intermediate theme
@@ -230,6 +233,7 @@ lefthand = \relative c {
   bis,, gis' dis' \SR gis bis dis gis eis bis gis \SL eis bis |
   eis, cis' eis \SR gis cis eis fisis eis cis gis \SL eis cis |
   dis, dis' gis \SR ais dis gis fisis dis ais \SL fisis dis cis |
+  \key g \major
   e, b' e \SR gis b e gis e b gis \SL e b |
   e, b' d \SR gis b d ais' d, b gis \SL d b |
   b, b' dis fis \SR b dis fis dis b \SL fis dis b |
@@ -314,6 +318,7 @@ bass = \relative c {
   gis |
   cis, | a' | a | e |
   e | e |
+  \key ais \minor
   ais, | s |
   % Intermediate theme
   dis4. b | ais2. | cis | fis |
@@ -325,6 +330,7 @@ bass = \relative c {
   s2. |
   cis2. | bis | cis4. dis | gis2. |
   fisis4. cis | bis4. r | eis2. | dis |
+  \key g \major
   e2. | e | b | a' |
   cis, | fis | b | b |
   c | g | c | g |
