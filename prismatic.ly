@@ -1,4 +1,4 @@
-\version "2.12.3"
+\version "2.22.0"
 
 #(set-default-paper-size "letter")
 #(set-global-staff-size 20)
@@ -351,7 +351,7 @@ bass = \relative c {
 }
 
 dynamics = {
-  %\override DynamicTextSpanner #'dash-period = #-1.0
+  %\override DynamicTextSpanner.style = #'none
   \dynamicUp
   % Intro
   s2.\p
@@ -574,23 +574,23 @@ pedals = {
   }
   \paper {
     print-page-number = ##t
-    between-system-padding = 1\cm
+    obsolete-between-system-padding = 1\cm  system-system-spacing.padding = #(/ obsolete-between-system-padding staff-space)  score-system-spacing.padding = #(/ obsolete-between-system-padding staff-space)
   }
   % PDF output
   \score {
     \new PianoStaff <<
-      #(set-accidental-style 'piano)
+      \accidentalStyle piano
       \new Staff = "R" <<
         % Configure space for the cross-staff beams
-        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-7 . 3)
+        \override Staff.VerticalAxisGroup.minimum-Y-extent = #'(-7 . 3)
 
         \righthand \dynamics
       >>
       \new Staff = "L" <<
         % Configure space for the cross-staff beams
-        \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+        \override Staff.VerticalAxisGroup.minimum-Y-extent = #'(-3 . 3)
         % Sustain pedal can afford to be a little closer to notes
-        \override Staff.SustainPedalLineSpanner #'padding = #0.8
+        \override Staff.SustainPedalLineSpanner.padding = #0.8
 
         \lefthand \bass \pedals
       >>
@@ -598,9 +598,9 @@ pedals = {
     \layout {
       \context { \Score
         % Put some distance between the metronome mark and the first "p"
-        \override MetronomeMark #'extra-offset = #'(0 . 2)
+        \override MetronomeMark.extra-offset = #'(0 . 2)
         % Still more space for cross-staff beams
-        \override VerticalAlignment #'padding = #1
+        \override VerticalAlignment.padding = #1
       }
     }
   }
