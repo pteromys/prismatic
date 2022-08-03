@@ -128,7 +128,7 @@ righthand = \relative c' {
   d4. e4 e8 |  % 90
   e4. fis4 fis8 |
   a4. g4 fis8 |
-  fis4 e16 g b4 a8 |
+  fis4 g8 b4 a8 |
   g4. d4 g8 |  % 94
   a4. g4 fis8 |
   g2. |  % 96
@@ -209,11 +209,11 @@ lefthand = \relative c {
   fis, cis' fis \SR gis ais cis fis cis ais gis \SL fis cis |
   fis, cis' e \SR ais cis e ais e cis ais \SL e cis |
   eis, cis' ais' \SR cis eis ais cis ais eis cis \SL eis, cis |
-  eis, eis' bis' \SR eis gisis bis eis bis gisis eis \SL bis eis, |
+  eis, eis' dis' \SR eis gisis bis eis bis gisis eis \SL bis eis, |
   ais, eis' ais \SR cis eis ais cis ais eis cis \SL ais eis |
   ais,16 eis' ais \SR cis eis ais cis ais fis cis \SL fis, cis |
   cis, cis' eis gis \SR cis eis gis eis cis \SL gis eis cis |
-  gis fis' dis' \SR gis bis dis gis dis bis gis \SL dis gis, |
+  bis gis' fis' \SR gis bis dis gis dis bis gis \SL dis gis, |
   cis, gis' cis \SR eis gis cis eis cis gis eis \SL cis gis |
   eis, eis' bis' \SR eis gisis bis fis' bis, gisis eis \SL bis eis, |
   ais, eis' ais \SR cis eis ais bis ais eis cis \SL ais eis |
@@ -246,23 +246,23 @@ lefthand = \relative c {
   g g' b \SR d g a b a g d \SL b g |
   c, g' c \SR e g c fis c g e \SL g, c, |
   g g' b \SR d g a b a g d \SL b g |
-  c, g' c \SR e g c d c g e \SL g, c, |
-  g g' b \SR d g b c b g e \SL g, e |
-  a, e' a \SR c e b' a g e c \SL e, a, |
+  c, g' c \SR e g c d c g e \SL c g |
+  b, g' b \SR d g b c b g e \SL g, e |
+  a, e' b' \SR c e b' a g e c \SL e, a, |
   d, d' g \SR a d g fis d a \SL d, a d, |
   % Main theme returns
   g16 d' g \SR b d g b g d b \SL g d |
   fis, fis' a \SR b dis fis b fis dis b \SL fis fis, |
-  e g' \SR b e g b e b g e b \SL e, |
-  e, e' \SR b' e g b e b g e \SL b e, |
+  e g' \SR b e g b e b g e b \SL g |
+  d, g' \SR b e g b e b g e \SL b e, |
   c c' e \SR g c d e d c g \SL e c |
   d, a' d \SR fis a d fis d a fis \SL a, d, |
-  g, g' b \SR d g b d b g d \SL b g |
+  g, a' b \SR d g b d b g d \SL b g |
   f g b \SR d g b d b g d \SL f, g, |
   c, e' d' \SR e g c e c g e \SL c e, |
   d, d' c' \SR fis a d fis d a fis \SL c d, |
   dis,16 fis' dis' \SR a' b dis g dis b a fis' a, \SL |
-  e,,16 e' b' \SR g' e' g b g e c \SL c, e, |
+  e,,16 e' b' \SR g' g' e b' g e c \SL es, g, |
   d,16 d' b' \SR d g b d b g d \SL b d, |
   d, d' c' \SR a' c d g d c a \SL c, d, |
   g, d' g \SR b d g b g d b \SL g d |
@@ -323,7 +323,7 @@ bass = \relative c {
   % Intermediate theme
   dis4. b | ais2. | cis | fis |
   fis2. | eis | eis | ais |
-  ais4. fis | cis2. | gis' | cis |
+  ais4. fis | cis eis | bis'2. | cis |
   eis,2. | ais | dis4. gis, | ais2. |
   fis4. fis | eis4. r | fis4. gis, | cis2. |
   % Transition back to main theme
@@ -334,9 +334,9 @@ bass = \relative c {
   e2. | e | b | a' |
   cis, | fis | b | b |
   c | g | c | g |
-  c | g | a | d, |
+  c2. | b4. e, | a2. | d, |
   % Main theme returns
-  g2. | fis | e | s |
+  g2. | fis | e | d |
   c' | d | g, | s |
   c,2. | d | dis4. b8 cis dis | e4. c |
   d2. | d | g |
@@ -490,7 +490,7 @@ pedals = {
   s2.\PX\PP
   s2.\PX\PP
   s4.\PX\PP s4.\PX\PP
-  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
   s2.\PX\PP
   s2.\PX\PP
   s2.\PX\PP
@@ -524,7 +524,7 @@ pedals = {
   s2.\PX\PP
   s2.\PX\PP
   s2.\PX\PP
-  s2.\PX\PP
+  s4.\PX\PP s4.\PX\PP
   s2.\PX\PP
   s2.\PX\PP
   % Main theme returns
@@ -538,7 +538,7 @@ pedals = {
   s2.
   s2.\PX\PP
   s2.\PX\PP
-  s4.\PX\PP s4.\PX\PP
+  s4.\PX\PP s8\PX\PP s8\PX\PP s8\PX\PP
   s4.\PX\PP s4.\PX\PP
   s2.\PX\PP
   s2.\PX\PP
